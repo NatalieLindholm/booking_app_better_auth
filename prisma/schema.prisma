@@ -23,7 +23,7 @@ model User {
   updatedAt     DateTime
   sessions      Session[]
   accounts      Account[]
-
+  booking       Booking[]
   @@map("user")
 }
 
@@ -70,4 +70,21 @@ model Verification {
   updatedAt  DateTime?
 
   @@map("verification")
+}
+
+model Booking {
+  id         String    @id @default(uuid())
+  userId     String
+  resourceId  String
+  start_time String
+  end_time   String
+  date       String?
+  user       User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  resource   Resource  @relation(fields: [resourceId], references: [id])
+}
+
+model Resource {
+  id         String    @id @default(uuid())
+  name       String
+  booking    Booking[]
 }

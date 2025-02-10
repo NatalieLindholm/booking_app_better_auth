@@ -31,7 +31,6 @@ export default function SignUp() {
       <input type="name" value={name} onChange={(e) => setName(e.target.value)} />
       <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
       <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
-      
       <button className="bg-slate-100 text-slate-900" onClick={signUp}>Sign Up</button>
     </div>
   );
